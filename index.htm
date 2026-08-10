@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- JOYCE FIT — hub. Uploaded as the site root so this loads first. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyce Fit — the whole plan</title>
+<meta name="description" content="Everything built for Brendan Joyce's launch: the website, business card, flyer, and presentation deck.">
+<link rel="icon" href="joycefit-mark.svg">
+<style>
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Black.woff2) format("woff2");font-weight:900}
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Bold.woff2) format("woff2");font-weight:700}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-Regular.woff2) format("woff2");font-weight:400}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-SemiBold.woff2) format("woff2");font-weight:600}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-ExtraBold.woff2) format("woff2");font-weight:800}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Medium.woff2) format("woff2");font-weight:500}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Bold.woff2) format("woff2");font-weight:700}
+
+  :root{
+    --ink:#16130E; --bone:#F2ECDF; --scarlet:#C42E22; --steel:#7B7A72;
+    --rule:#D8D1C2; --paper:#FBF8F1;
+    --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+    --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"Chivo Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --gut:clamp(20px,6vw,80px);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+       -webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  :focus-visible{outline:3px solid var(--scarlet);outline-offset:3px}
+
+  header{padding:clamp(48px,9vw,96px) var(--gut) clamp(20px,4vw,40px)}
+  .brandmark{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+  .chip{width:38px;height:38px;border-radius:5px;background:var(--scarlet);color:var(--bone);
+        font-family:var(--display);font-weight:900;font-size:24px;display:grid;place-items:center;padding-top:2px}
+  .brandmark b{font-family:var(--display);font-weight:900;font-size:26px;text-transform:uppercase}
+  .eyebrow{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.16em;
+           text-transform:uppercase;color:var(--scarlet);margin:0 0 14px}
+  h1{font-family:var(--display);font-weight:900;text-transform:uppercase;
+     font-size:clamp(36px,7vw,84px);line-height:.94;letter-spacing:-.01em;margin:0 0 20px}
+  p.lede{font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:#3B362D;max-width:58ch;margin:0}
+
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:0 var(--gut) clamp(48px,8vw,96px)}
+  @media(max-width:760px){.tiles{grid-template-columns:1fr}}
+
+  .tile{background:var(--ink);color:var(--bone);border-radius:10px;padding:32px 30px;
+        display:flex;flex-direction:column;min-height:230px;position:relative;
+        transition:transform .15s ease,box-shadow .15s ease}
+  .tile:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,.18)}
+  .tile .n{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.14em;
+           text-transform:uppercase;color:#B9B3A5;margin-bottom:16px}
+  .tile h2{font-family:var(--display);font-weight:900;text-transform:uppercase;
+           font-size:clamp(26px,3.4vw,36px);line-height:1;margin:0 0 12px}
+  .tile p{font-size:15px;line-height:1.5;color:#C7C1B3;margin:0 0 auto;max-width:38ch}
+  .tile .go{margin-top:20px;font-family:var(--mono);font-weight:700;font-size:12px;
+            letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px;color:var(--bone)}
+  .tile .go .arrow{transition:transform .15s ease}
+  .tile:hover .go .arrow{transform:translateX(4px)}
+
+  .tile.alt{background:var(--paper);color:var(--ink);border:1px solid var(--rule)}
+  .tile.alt .n{color:var(--steel)}
+  .tile.alt p{color:#4A4438}
+  .tile.alt .go{color:var(--ink)}
+
+  .tile .sub{margin-top:14px;display:flex;gap:14px;flex-wrap:wrap}
+  .tile .sub a{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.06em;
+              text-transform:uppercase;color:var(--scarlet);border-bottom:1px solid transparent}
+  .tile .sub a:hover{border-color:var(--scarlet)}
+
+  footer{padding:0 var(--gut) 60px;font-family:var(--mono);font-size:12px;color:var(--steel);
+         letter-spacing:.05em}
+  footer b{color:var(--scarlet)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brandmark"><span class="chip">JF</span><b>Joyce&nbsp;Fit</b></div>
+  <p class="eyebrow">[ everything, in one place ]</p>
+  <h1>The whole plan,<br>four pieces</h1>
+  <p class="lede">Website, business card, flyer, and the deck that walks through why each
+     one exists. Open anything below — nothing here needs to be downloaded to look at it.</p>
+</header>
+
+<div class="tiles">
+
+  <a class="tile" href="frontpage.htm">
+    <div class="n">01 · website</div>
+    <h2>The site</h2>
+    <p>One page, built to work on any screen — the thing to point people at once there's
+       a real domain.</p>
+    <div class="go">Open the site <span class="arrow">→</span></div>
+  </a>
+
+  <a class="tile" href="card.htm">
+    <div class="n">02 · business card</div>
+    <h2>The card</h2>
+    <p>Front and back, ready to upload straight to VistaPrint. QR code opens a
+       pre-filled text.</p>
+    <div class="go">View the card <span class="arrow">→</span></div>
+  </a>
+
+  <a class="tile" href="flyer.htm">
+    <div class="n">03 · flyer</div>
+    <h2>The flyer</h2>
+    <p>Built for a lobby bulletin board — six tear-off tabs across the bottom, each
+       with its own QR.</p>
+    <div class="go">View the flyer <span class="arrow">→</span></div>
+  </a>
+
+  <a class="tile" href="deck.htm">
+    <div class="n">04 · presentation</div>
+    <h2>The deck</h2>
+    <p>The full walkthrough — positioning, the text-in system, what's built, and what
+       to do next.</p>
+    <div class="go">Open the deck <span class="arrow">→</span></div>
+  </a>
+
+</div>
+
+<footer>Before this goes live: swap the placeholder number — search each file for
+  <b>555-0143</b> — and fill in every <b>&lt;&lt; CERT &gt;&gt;</b>, <b>&lt;&lt; YEARS &gt;&gt;</b>,
+  <b>&lt;&lt; DEGREE &gt;&gt;</b>, and <b>&lt;&lt; IG &gt;&gt;</b> placeholder across these files.</footer>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--
+  JOYCE FIT — one-page site
+  ────────────────────────────────────────────────────────────────
+  BEFORE THIS GOES LIVE, REPLACE EVERY ITEM MARKED  << >>  BELOW:
+    << PHONE >>     (312) 555-0143  → Brendan's real texting number
+    << CERT >>      his actual certification (NASM / ACE / ISSA / NSCA…)
+    << YEARS >>     years he's been training people
+    << GYM >>       the gym he rents floor time at, if any
+    << RATES >>     the $## / $### figures in the Rates section
+    << EMAIL >>     hello@joycefit.com → a real inbox
+    << IG >>        his Instagram handle
+  Search this file for "555-0143", "$#", and "<<" to find them all.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyce Fit — Personal training that comes to you | Chicago</title>
+<meta name="description" content="Brendan Joyce is a Chicago personal trainer who trains you where you already are: your building's gym, your living room, or the park. Text JOYCEFIT to get started.">
+<meta property="og:title" content="Joyce Fit — Personal training that comes to you">
+<meta property="og:description" content="No membership. No commute. Text JOYCEFIT to (312) 555-0143.">
+<link rel="icon" href="joycefit-mark.svg">
+<link rel="preload" href="fonts/BigShouldersDisplay-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Archivo-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Self-hosted so the site owes nothing to a third party and loads instantly.
+     All three families are SIL Open Font License — free for commercial use. */
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Black.woff2) format("woff2");font-weight:900;font-display:swap}
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-Regular.woff2) format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-SemiBold.woff2) format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-ExtraBold.woff2) format("woff2");font-weight:800;font-display:swap}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Medium.woff2) format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Bold.woff2) format("woff2");font-weight:700;font-display:swap}
+
+  :root{
+    --ink:#16130E; --bone:#F2ECDF; --scarlet:#C42E22; --steel:#7B7A72;
+    --rule:#D8D1C2; --paper:#FBF8F1;
+    --display:"Big Shoulders Display","Big Shoulders",Impact,Haettenschweiler,"Arial Narrow",sans-serif;
+    --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"Chivo Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --gut:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--body);
+       font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--scarlet);outline-offset:3px}
+
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:var(--gut)}
+  .eyebrow{font-family:var(--mono);font-weight:700;font-size:11.5px;letter-spacing:.16em;
+           text-transform:uppercase;color:var(--steel);margin:0 0 18px}
+  .eyebrow::before{content:"[ ";color:var(--scarlet)}
+  .eyebrow::after{content:" ]";color:var(--scarlet)}
+  h2{font-family:var(--display);font-weight:900;text-transform:uppercase;
+     font-size:clamp(34px,5.4vw,62px);line-height:.94;letter-spacing:-.01em;margin:0 0 28px}
+  h3{font-family:var(--display);font-weight:800;text-transform:uppercase;
+     font-size:clamp(22px,2.6vw,29px);line-height:1;letter-spacing:.005em;margin:0 0 10px}
+  p{margin:0 0 16px}
+  .lede{font-size:clamp(17px,1.7vw,20px);color:#3B362D;max-width:56ch}
+  .muted{color:var(--steel)}
+  section{padding-block:clamp(56px,8vw,104px)}
+
+  /* ── nav ───────────────────────────────────────────── */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(242,236,223,.93);
+       backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;
+             min-height:64px;padding-block:10px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .brand .chip{width:32px;height:32px;border-radius:2px;background:var(--scarlet);color:var(--bone);
+       font-family:var(--display);font-weight:900;font-size:22px;display:grid;place-items:center;
+       letter-spacing:-.02em;padding-top:2px}
+  .brand b{font-family:var(--display);font-weight:900;font-size:25px;text-transform:uppercase;letter-spacing:.005em}
+  .navtext{font-family:var(--mono);font-weight:700;font-size:12px;letter-spacing:.1em;
+           text-transform:uppercase;text-decoration:none;white-space:nowrap}
+  .navtext span{color:var(--scarlet)}
+  @media(max-width:560px){.navtext{display:none}}
+
+  /* ── hero ──────────────────────────────────────────── */
+  .hero{padding-top:clamp(44px,7vw,86px);padding-bottom:clamp(40px,6vw,72px)}
+  .headline{font-family:var(--display);font-weight:900;text-transform:uppercase;
+    font-size:clamp(34px,10.2vw,118px);line-height:.86;letter-spacing:-.015em;margin:0 0 26px}
+  .swapline{display:flex;align-items:baseline;gap:.20em;flex-wrap:nowrap}
+  .brk{color:var(--scarlet);font-weight:700}
+  /* words are stacked in one grid cell so they cross-fade in place, and nothing
+     is clipped — a clipping mask would eat the descenders in "your living room" */
+  .slot{display:inline-grid;position:relative}
+  .slot i{font-style:normal;grid-area:1/1;white-space:nowrap;justify-self:center}
+  .slot i.out{animation:up .32s cubic-bezier(.65,0,.35,1) forwards}
+  .slot i.in{animation:down .32s cubic-bezier(.65,0,.35,1) backwards}
+  @keyframes up{to{transform:translateY(-34%);opacity:0}}
+  @keyframes down{from{transform:translateY(34%);opacity:0}}
+
+  .cta{display:inline-flex;align-items:center;gap:0;background:var(--ink);color:var(--bone);
+       text-decoration:none;padding:17px 24px;border-radius:3px;
+       font-family:var(--mono);font-weight:700;font-size:clamp(13px,1.5vw,15px);letter-spacing:.06em;
+       text-transform:uppercase;transition:transform .12s ease,background .18s ease}
+  .cta:hover{background:var(--scarlet);transform:translateY(-2px)}
+  .cta .kw{background:var(--scarlet);color:var(--bone);padding:3px 8px;border-radius:2px;margin:0 7px}
+  .cta .num{white-space:nowrap}
+  /* Phones get a full-width tap target with the number on its own line —
+     more legible than shrinking type to squeeze it onto one. */
+  @media(max-width:430px){
+    .cta{width:100%;justify-content:center;flex-wrap:wrap;padding:15px 14px;font-size:13px}
+    .cta .kw{margin:0 6px;padding:3px 7px}
+    .cta .num{flex-basis:100%;text-align:center;margin-top:5px}
+    .ctarow{gap:16px}
+  }
+  .cta:hover .kw{background:var(--ink)}
+  .ctarow{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:8px}
+  .ctanote{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--steel);max-width:32ch;margin:0}
+
+  /* ── credential strip ──────────────────────────────── */
+  .strip{background:var(--ink);color:var(--bone);padding-block:0}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:8px 42px;padding-block:20px;
+    font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.11em;text-transform:uppercase}
+  .strip span::before{content:"▪ ";color:var(--scarlet)}
+
+  /* ── grids ─────────────────────────────────────────── */
+  .cols{display:grid;gap:clamp(28px,4vw,44px);grid-template-columns:repeat(auto-fit,minmax(238px,1fr))}
+  .cols p{font-size:16px;color:#4A4438;margin:0}
+  .where{border-top:1px solid var(--rule)}
+  .card{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:26px 24px 28px}
+  .card .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.14em;
+             text-transform:uppercase;color:var(--scarlet);display:block;margin-bottom:14px}
+
+  /* ── steps ─────────────────────────────────────────── */
+  .steps{background:var(--ink);color:var(--bone)}
+  .steps h2{color:var(--bone)}
+  .steps .eyebrow{color:#9A9689}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:clamp(18px,3vw,34px);
+        align-items:start;padding:26px 0;border-top:1px solid #2E2A22}
+  .step:last-child{border-bottom:1px solid #2E2A22}
+  .step .n{font-family:var(--display);font-weight:900;font-size:clamp(46px,6vw,74px);
+           line-height:.8;color:var(--scarlet);min-width:1.4ch}
+  .step h3{color:var(--bone)}
+  .step p{color:#B9B3A5;margin:0;max-width:52ch;font-size:16px}
+
+  /* ── rates ─────────────────────────────────────────── */
+  .rates{display:grid;gap:0;border:1px solid var(--rule);border-radius:4px;overflow:hidden;background:var(--paper)}
+  .rate{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+        padding:20px 24px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+  .rate:last-child{border-bottom:0}
+  .rate .what b{font-family:var(--display);font-weight:800;font-size:23px;text-transform:uppercase;display:block}
+  .rate .what small{color:var(--steel);font-size:14px}
+  .rate .amt{font-family:var(--display);font-weight:900;font-size:30px;color:var(--scarlet);white-space:nowrap}
+
+  /* ── closing CTA ───────────────────────────────────── */
+  .close{background:var(--scarlet);color:var(--bone);text-align:center}
+  .close h2{color:var(--bone);font-size:clamp(38px,7.6vw,92px);margin-bottom:14px}
+  .close p{color:#FBE4E1;max-width:44ch;margin-inline:auto}
+  .close .cta{background:var(--bone);color:var(--ink);margin-top:22px}
+  .close .cta:hover{background:var(--ink);color:var(--bone)}
+  .close .cta .kw{background:var(--scarlet);color:var(--bone)}
+
+  footer{background:var(--ink);color:#8B857A;font-family:var(--mono);font-size:12px;
+         letter-spacing:.06em;padding-block:34px}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  footer a{color:var(--bone);text-decoration:none;border-bottom:1px solid #453F35}
+  footer a:hover{border-color:var(--scarlet)}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .slot i.out,.slot i.in{animation:none}
+    .cta{transition:none}
+  }
+
+  /* Sits just under the sticky nav so it never collides with the brand mark. */
+  .hub-back{position:fixed;top:76px;left:16px;font-family:var(--mono);font-weight:700;
+            font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);
+            background:var(--paper);border:1px solid var(--rule);border-radius:20px;
+            padding:8px 16px;text-decoration:none;z-index:40}
+  .hub-back:hover{color:var(--scarlet);border-color:var(--scarlet)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="chip">JF</span><b>Joyce&nbsp;Fit</b></a>
+    <a class="navtext" href="sms:+13125550143?&body=JOYCEFIT">Text <span>JOYCEFIT</span> &nbsp;→&nbsp; (312)&nbsp;555-0143</a>
+  </div>
+</nav>
+
+<a class="hub-back" href="index.htm">&larr; hub</a>
+
+<header class="hero wrap" id="top">
+  <p class="eyebrow">Personal training / Chicago</p>
+  <h1 class="headline">
+    Your gym is<br>
+    <span class="swapline">
+      <span class="brk">[</span>
+      <span class="slot" id="slot"><i>your living room</i></span>
+      <span class="brk">]</span>
+    </span>
+  </h1>
+  <p class="lede">Brendan Joyce doesn't have a gym, because you already do. He trains you
+     in your building's fitness room, on your living room floor, or at the track down the
+     street. No membership. No commute. No hour lost getting there and back.</p>
+  <div class="ctarow">
+    <a class="cta" href="sms:+13125550143?&body=JOYCEFIT">
+Text<span class="kw">JOYCEFIT</span>to&nbsp;<span class="num">(312) 555-0143</span></a>
+    <p class="ctanote">That's it — he'll text you back to set up a call.</p>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <span>&lt;&lt; CERT &gt;&gt;-certified</span>
+    <span>&lt;&lt; YEARS &gt;&gt; years training clients</span>
+    <span>In-home · gym · outdoor</span>
+    <span>First session free</span>
+  </div>
+</div>
+
+<section class="wrap">
+  <p class="eyebrow">What he'll train you for</p>
+  <h2>Whatever you're actually<br>trying to do</h2>
+  <div class="cols" style="margin-top:44px">
+    <div>
+      <h3>Get stronger</h3>
+      <p>Barbell and dumbbell work built around real lifts, scaled to whatever equipment
+         is in front of you — including none.</p>
+    </div>
+    <div>
+      <h3>Lose the weight</h3>
+      <p>Conditioning that doesn't wreck you, plus the boring nutrition habits that
+         actually move the number. No meal plans you'll quit in nine days.</p>
+    </div>
+    <div>
+      <h3>Stop hurting</h3>
+      <p>For desks, stairs, and shoulders that have opinions. Mobility and low-impact
+         strength so ordinary days stop being a negotiation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap where">
+  <p class="eyebrow">Where he trains people</p>
+  <h2>Three places, one trainer</h2>
+  <div class="cols" style="margin-top:44px">
+    <div class="card">
+      <span class="tag">Option A</span>
+      <h3>Your building</h3>
+      <p>That fitness room on the second floor you're already paying for and never use.
+         Two dumbbells and a bench is plenty.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Option B</span>
+      <h3>A real gym</h3>
+      <p>Full racks and heavy plates at &lt;&lt; GYM &gt;&gt; if you want to train
+         seriously and don't mind the trip.</p>
+    </div>
+    <div class="card">
+      <span class="tag">Option C</span>
+      <h3>Outside</h3>
+      <p>Parks, tracks, and lakefront paths. Free, and better for you than a treadmill
+         facing a wall.</p>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <p class="eyebrow">How it starts</p>
+    <h2>Four steps, one text</h2>
+    <div style="margin-top:40px">
+      <div class="step"><div class="n">1</div><div>
+        <h3>Text him the word</h3>
+        <p>Send <b>JOYCEFIT</b> to (312) 555-0143. You don't have to write a message or
+           explain yourself. The word is enough.</p></div></div>
+      <div class="step"><div class="n">2</div><div>
+        <h3>Fifteen minutes on the phone</h3>
+        <p>What you want, what's hurt, what your schedule actually looks like, and where
+           you'd rather train. No pitch.</p></div></div>
+      <div class="step"><div class="n">3</div><div>
+        <h3>First session is free</h3>
+        <p>He comes to you. You train. If it's not a fit, that's a fine outcome and it
+           cost you nothing.</p></div></div>
+      <div class="step"><div class="n">4</div><div>
+        <h3>Then you have a plan</h3>
+        <p>A written program, a standing time each week, and someone who notices when you
+           don't show up.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <p class="eyebrow">Rates</p>
+  <h2>Priced per session,<br>cheaper by the block</h2>
+  <div class="rates" style="margin-top:40px">
+    <div class="rate"><div class="what"><b>First session</b><small>Anywhere in the city</small></div><div class="amt">Free</div></div>
+    <div class="rate"><div class="what"><b>Single session</b><small>60 minutes, one-on-one</small></div><div class="amt">$##</div></div>
+    <div class="rate"><div class="what"><b>Block of 8</b><small>Roughly two months, once a week</small></div><div class="amt">$###</div></div>
+    <div class="rate"><div class="what"><b>Block of 24</b><small>The one that actually changes things</small></div><div class="amt">$###</div></div>
+    <div class="rate"><div class="what"><b>Partner rate</b><small>Two people, same session</small></div><div class="amt">$## <span style="font-size:15px;color:var(--steel)">each</span></div></div>
+  </div>
+  <p class="muted" style="margin-top:18px;font-size:15px">Travel inside &lt;&lt; NEIGHBORHOODS &gt;&gt; is included. Further out, ask him.</p>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>One word.<br>That's the whole ask.</h2>
+    <p>You don't have to be ready. You don't have to have a plan. Text him the word and
+       he'll take it from there.</p>
+    <a class="cta" href="sms:+13125550143?&body=JOYCEFIT">
+Text<span class="kw">JOYCEFIT</span>to&nbsp;<span class="num">(312) 555-0143</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr">2026</span> Joyce Fit · Brendan Joyce · Chicago, IL</div>
+    <div><a href="mailto:hello@joycefit.com">hello@joycefit.com</a> &nbsp;·&nbsp;
+         <a href="https://instagram.com/">@&lt;&lt;IG&gt;&gt;</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+(function(){
+  var slot = document.getElementById('slot');
+  if(!slot) return;
+  // Deliberately similar in width — the brackets are a fixed frame, and a short
+  // word like "the park" would leave them stranded either side of a gap.
+  var words = ['your living room','the park at 7am','the 2nd floor gym',
+               'the lakefront path','wherever you are'];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Lock the slot width to the widest word so the brackets never jump.
+  function lock(){
+    var probe = document.createElement('i');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap';
+    slot.appendChild(probe);
+    var max = 0;
+    words.forEach(function(w){ probe.textContent = w; max = Math.max(max, probe.offsetWidth); });
+    slot.removeChild(probe);
+    slot.style.minWidth = Math.ceil(max) + 'px';
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(lock); else lock();
+  window.addEventListener('resize', lock);
+
+  if (reduce.matches){ slot.innerHTML = '<i>wherever you are</i>'; return; }
+
+  var i = 0, timer, kick;
+  function next(){
+    var old = slot.querySelector('i');
+    i = (i + 1) % words.length;
+    var el = document.createElement('i');
+    el.textContent = words[i];
+    el.className = 'in';
+    slot.appendChild(el);
+    old.className = 'out';
+    setTimeout(function(){ if(old.parentNode) old.parentNode.removeChild(old); }, 360);
+  }
+  // First swap fires quickly so the headline reads as already-in-motion on
+  // load, rather than sitting still for a full interval before it starts.
+  function start(){
+    clearInterval(timer); clearTimeout(kick);
+    kick = setTimeout(function(){ next(); timer = setInterval(next, 2300); }, 700);
+  }
+  function stop(){ clearInterval(timer); clearTimeout(kick); }
+  start();
+  document.addEventListener('visibilitychange', function(){
+    document.hidden ? stop() : start();
+  });
+  slot.closest('.headline').addEventListener('mouseenter', stop);
+  slot.closest('.headline').addEventListener('mouseleave', start);
+})();
+</script>
+</body>
+</html>

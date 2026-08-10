@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+  JOYCE FIT — building flyer (US Letter, tear-tabs)
+  ────────────────────────────────────────────────────────────────
+  BEFORE THIS GOES UP, REPLACE EVERY ITEM MARKED  << >>  BELOW:
+    << PHONE >>   (312) 555-0143  → Brendan's real texting number (also update
+                  the two SMSTO: QR symbols and the sms: href if you add taps)
+    << YEARS >>   years he's been training clients
+    << DEGREE >>  his actual ASU degree title (e.g. "B.S. Exercise Science")
+    << IG >>      his Instagram handle
+  Search this file for "555-0143", "<<" to find them all. Regenerate the QR
+  if the number changes: npx qrcode -t svg -e Q -d "16130E" -l "FBF8F100" -o qr.svg "SMSTO:+1XXXXXXXXXX:JOYCEFIT"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Joyce Fit — flyer (print)</title>
+<style>
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Black.woff2) format("woff2");font-weight:900}
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Bold.woff2) format("woff2");font-weight:700}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-Regular.woff2) format("woff2");font-weight:400}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-SemiBold.woff2) format("woff2");font-weight:600}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-ExtraBold.woff2) format("woff2");font-weight:800}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Medium.woff2) format("woff2");font-weight:500}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Bold.woff2) format("woff2");font-weight:700}
+
+  :root{
+    --ink:#16130E; --bone:#F2ECDF; --scarlet:#C42E22; --steel:#7B7A72;
+    --rule:#D8D1C2; --paper:#FBF8F1;
+    --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+    --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"Chivo Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#fff}
+  body{font-family:var(--body);color:var(--ink)}
+  @page{size:8.5in 11in;margin:0}
+
+  .hub-back{position:fixed;top:16px;left:16px;font-family:var(--mono);font-weight:700;
+            font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);
+            background:var(--paper);border:1px solid var(--rule);border-radius:20px;
+            padding:8px 16px;text-decoration:none;z-index:10}
+  .hub-back:hover{color:var(--scarlet);border-color:var(--scarlet)}
+  .hub-dl{position:fixed;top:16px;right:16px;font-family:var(--mono);font-weight:700;
+          font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone);
+          background:var(--ink);border-radius:20px;padding:8px 16px;text-decoration:none;z-index:10}
+  .hub-dl:hover{background:var(--scarlet)}
+  @media print{.hub-back,.hub-dl{display:none}}
+
+  .sheet{width:8.5in;height:11in;padding:.35in;background:var(--paper);
+         display:flex;flex-direction:column;gap:.2in;position:relative;
+         overflow:hidden;break-inside:avoid}
+
+  /* ── poster panel ─────────────────────────────────────── */
+  .poster{background:var(--ink);color:var(--bone);border-radius:10px;
+          padding:.42in .5in .4in;height:7.65in;display:flex;flex-direction:column;
+          break-inside:avoid}
+
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.22in}
+  .brandmark{display:flex;align-items:center;gap:10px}
+  .chip{width:34px;height:34px;border-radius:4px;background:var(--scarlet);color:var(--bone);
+        font-family:var(--display);font-weight:900;font-size:22px;display:grid;place-items:center;
+        letter-spacing:-.02em;padding-top:2px}
+  .brandmark b{font-family:var(--display);font-weight:900;font-size:24px;text-transform:uppercase}
+  .ribbon{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:.1em;
+          text-transform:uppercase;color:var(--scarlet);border:1px solid var(--scarlet);
+          border-radius:20px;padding:6px 14px}
+
+  .eyebrow{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.18em;
+           text-transform:uppercase;color:#B9B3A5;margin:0 0 10px}
+  .eyebrow b{color:var(--scarlet)}
+
+  h1{font-family:var(--display);font-weight:900;text-transform:uppercase;
+     font-size:74px;line-height:.9;letter-spacing:-.01em;margin:0 0 8px}
+  .brk{color:var(--scarlet)}
+
+  .lede{font-family:var(--body);font-weight:400;font-size:19px;line-height:1.4;
+        color:#D9D3C4;max-width:6.6in;margin:0 0 .26in}
+  .lede b{color:var(--bone);font-weight:600}
+
+  .creds{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.05em;
+         text-transform:uppercase;color:#C7C1B3;display:flex;flex-wrap:wrap;
+         gap:6px 0;margin-bottom:.3in}
+  .creds span::before{content:"▪ ";color:var(--scarlet)}
+  .creds span{margin-right:14px}
+
+  .ctazone{margin-top:auto;display:flex;align-items:center;gap:.4in;
+           border-top:1px solid #332D22;padding-top:.28in}
+  .ctatext{flex:1}
+  .offer{display:inline-block;background:var(--scarlet);color:var(--bone);
+         font-family:var(--display);font-weight:900;font-size:20px;text-transform:uppercase;
+         padding:5px 14px;border-radius:3px;letter-spacing:.01em;margin-bottom:12px}
+  .ctaline{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.04em;
+           text-transform:uppercase;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .kw{background:var(--bone);color:var(--ink);padding:4px 10px;border-radius:3px}
+  .ctaline .num{font-family:var(--display);font-weight:900;font-size:34px;
+                letter-spacing:0;text-transform:none;display:block;margin-top:6px;color:var(--bone)}
+  .qrbox{background:var(--bone);border-radius:6px;padding:12px 14px 10px;text-align:center;flex-shrink:0}
+  .qrbox svg{width:1.15in;height:1.15in;display:block}
+  .qrbox small{display:block;margin-top:6px;font-family:var(--mono);font-weight:700;
+               font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+
+  .footline{margin-top:.22in;display:flex;justify-content:space-between;
+            font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:#8B857A;
+            text-transform:uppercase}
+  .footline span.brk{color:var(--scarlet)}
+
+  /* ── cut line ─────────────────────────────────────────── */
+  .cutline{display:flex;align-items:center;gap:10px;color:var(--steel);height:.25in;
+           font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+           break-inside:avoid}
+  .cutline .dashes{flex:1;border-top:2px dashed var(--rule)}
+
+  /* ── tear tabs ────────────────────────────────────────── */
+  .tabs{display:flex;height:1.9in;break-inside:avoid}
+  .tab{flex:1;border-right:2px dashed var(--rule);display:flex;flex-direction:column;
+       align-items:center;justify-content:space-between;padding:.16in .04in .14in;
+       text-align:center;position:relative;break-inside:avoid}
+  .tab:last-child{border-right:0}
+  .tab .brand2{font-family:var(--display);font-weight:900;font-size:12px;
+               text-transform:uppercase;color:var(--steel);letter-spacing:.02em}
+  .tab .word{font-family:var(--mono);font-weight:700;font-size:8.5px;letter-spacing:.1em;
+             text-transform:uppercase;color:var(--ink)}
+  .tab .kw2{display:inline-block;background:var(--scarlet);color:var(--bone);
+            font-family:var(--mono);font-weight:700;font-size:9px;letter-spacing:.05em;
+            padding:2px 6px;border-radius:2px;margin:3px 0}
+  .tab .num{font-family:var(--display);font-weight:900;font-size:16px;line-height:1.05;
+            letter-spacing:0;color:var(--scarlet)}
+  .tab svg{width:.5in;height:.5in;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<a class="hub-back" href="index.htm">&larr; hub</a>
+<a class="hub-dl" href="joycefit-flyer-PRINT.pdf" download>Download print PDF</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="qr" viewBox="0 0 33 33" shape-rendering="crispEdges">
+      <path fill="none" stroke="#16130E" stroke-width="1" d="M4 4.5h7m1 0h2m1 0h1m3 0h2m1 0h7M4 5.5h1m5 0h1m1 0h1m3 0h3m3 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h1m5 0h3m1 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m1 0h1m3 0h1m5 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m3 0h2m1 0h4m1 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h3m2 0h1m1 0h1M5 12.5h2m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m3 0h1m1 0h5M5 13.5h1m2 0h1m2 0h1m7 0h1m3 0h3M4 14.5h1m1 0h2m1 0h2m1 0h1m2 0h1m1 0h1m1 0h2m2 0h1m1 0h1m2 0h1M5 15.5h1m2 0h1m3 0h1m1 0h3m3 0h2m1 0h1m1 0h1m1 0h2M8 16.5h1m1 0h1m1 0h1m2 0h1m6 0h1m2 0h2M5 17.5h1m3 0h1m1 0h5m1 0h1m1 0h1m1 0h1m2 0h5M4 18.5h1m1 0h1m1 0h1m1 0h3m5 0h1m3 0h2m1 0h2m1 0h1M5 19.5h2m2 0h1m3 0h4m1 0h1m1 0h2m1 0h3m1 0h1M4 20.5h1m1 0h1m1 0h5m4 0h1m1 0h7m2 0h1M12 21.5h1m2 0h1m2 0h1m1 0h1m3 0h3M4 22.5h7m1 0h1m1 0h1m5 0h1m1 0h1m1 0h1m1 0h2M4 23.5h1m5 0h1m2 0h3m1 0h4m3 0h1M4 24.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h6m1 0h2M4 25.5h1m1 0h3m1 0h1m3 0h2m2 0h1m1 0h4m1 0h3M4 26.5h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1M4 27.5h1m5 0h1m1 0h2m4 0h1m1 0h4m1 0h4M4 28.5h7m2 0h3m3 0h3m4 0h1m1 0h1"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sheet">
+
+  <div class="poster">
+    <div class="top">
+      <div class="brandmark"><span class="chip">JF</span><b>Joyce&nbsp;Fit</b></div>
+      <div class="ribbon">Golden Gloves-trained</div>
+    </div>
+
+    <p class="eyebrow">Personal training <b>/</b> Chicago</p>
+    <h1>Your gym is<br><span class="brk">[</span> wherever you are <span class="brk">]</span></h1>
+    <p class="lede"><b>Brendan Joyce</b> doesn't have a gym, because you already do. He trains
+       you in your building's fitness room, on your living room floor, or at the park down
+       the street. No membership. No commute.</p>
+
+    <div class="creds">
+      <span>&lt;&lt;YEARS&gt;&gt;+ years training clients</span>
+      <span>ASU-educated in &lt;&lt;DEGREE&gt;&gt;</span>
+      <span>Former Golden Gloves boxer</span>
+      <span>Lifelong Chicagoan</span>
+    </div>
+
+    <div class="ctazone">
+      <div class="ctatext">
+        <div class="offer">First session free</div>
+        <div class="ctaline">Text&nbsp;<span class="kw">JOYCEFIT</span>&nbsp;to
+          <span class="num">(312) 555-0143</span></div>
+      </div>
+      <div class="qrbox"><svg><use href="#qr"/></svg><small>Scan to text</small></div>
+    </div>
+
+    <div class="footline">
+      <div>joycefit.com</div>
+      <div><span class="brk">@</span>&lt;&lt;IG&gt;&gt;</div>
+    </div>
+  </div>
+
+  <div class="cutline"><span>✂ tear a tab</span><span class="dashes"></span></div>
+
+  <div class="tabs">
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+    <div class="tab"><div class="brand2">JF</div>
+      <div><div class="word">Text</div><div class="kw2">JOYCEFIT</div><div class="word">to</div>
+      <div class="num">(312)<br>555-0143</div></div>
+      <svg><use href="#qr"/></svg></div>
+  </div>
+
+</div>
+</body>
+</html>

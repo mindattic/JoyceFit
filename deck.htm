@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--
+  JOYCE FIT — presentation deck (for Ryan → Brendan)
+  ────────────────────────────────────────────────────────────────
+  Placeholders to replace before presenting/sharing outside the family:
+    << PHONE >>  (312) 555-0143   << YEARS >>   << DEGREE >>   << IG >>
+  Arrow keys / on-screen chevrons move between slides. Prints one slide
+  per page (File → Print → Save as PDF) if a static leave-behind is useful.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joyce Fit — the plan</title>
+<style>
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Black.woff2) format("woff2");font-weight:900}
+  @font-face{font-family:"Big Shoulders Display";src:url(fonts/BigShouldersDisplay-Bold.woff2) format("woff2");font-weight:700}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-Regular.woff2) format("woff2");font-weight:400}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-SemiBold.woff2) format("woff2");font-weight:600}
+  @font-face{font-family:"Archivo";src:url(fonts/Archivo-ExtraBold.woff2) format("woff2");font-weight:800}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Medium.woff2) format("woff2");font-weight:500}
+  @font-face{font-family:"Chivo Mono";src:url(fonts/ChivoMono-Bold.woff2) format("woff2");font-weight:700}
+
+  :root{
+    --ink:#16130E; --bone:#F2ECDF; --scarlet:#C42E22; --steel:#7B7A72;
+    --rule:#D8D1C2; --paper:#FBF8F1;
+    --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+    --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --mono:"Chivo Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--ink)}
+  body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--scarlet);color:var(--bone)}
+
+  .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+  .slide{height:100vh;width:100vw;scroll-snap-align:start;display:flex;flex-direction:column;
+         justify-content:center;padding:6vw 8vw;position:relative;overflow:hidden}
+  .slide.dark{background:var(--ink);color:var(--bone)}
+  .slide.light{background:var(--paper);color:var(--ink)}
+  .slide.scarlet{background:var(--scarlet);color:var(--bone)}
+
+  .kicker{font-family:var(--mono);font-weight:700;font-size:clamp(11px,1.3vw,14px);
+          letter-spacing:.18em;text-transform:uppercase;color:var(--scarlet);margin:0 0 18px}
+  .slide.dark .kicker,.slide.scarlet .kicker{color:#F0A79E}
+  .kicker b{color:inherit}
+  .num{position:absolute;top:6vw;right:8vw;font-family:var(--mono);font-size:12px;
+       letter-spacing:.1em;color:var(--steel);opacity:.7}
+  .slide.dark .num,.slide.scarlet .num{color:#B9B3A5}
+
+  h1{font-family:var(--display);font-weight:900;text-transform:uppercase;
+     font-size:clamp(38px,7vw,88px);line-height:.96;letter-spacing:-.01em;margin:0 0 22px}
+  h2{font-family:var(--display);font-weight:800;text-transform:uppercase;
+     font-size:clamp(20px,2.4vw,28px);line-height:1.05;margin:0 0 10px}
+  p.lede{font-family:var(--body);font-size:clamp(16px,2vw,22px);line-height:1.5;
+         max-width:52ch;color:#3B362D;margin:0 0 14px}
+  .slide.dark p.lede{color:#D9D3C4}
+  .slide.scarlet p.lede{color:#FBE4E1}
+  .brk{color:var(--scarlet)}
+  .slide.dark .brk,.slide.scarlet .brk{color:var(--bone)}
+
+  .brandmark{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+  .chip{width:40px;height:40px;border-radius:5px;background:var(--scarlet);color:var(--bone);
+        font-family:var(--display);font-weight:900;font-size:26px;display:grid;place-items:center;
+        padding-top:2px}
+  .brandmark b{font-family:var(--display);font-weight:900;font-size:28px;text-transform:uppercase}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:start}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6vw}
+  @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr}}
+
+  .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+        border-radius:8px;padding:24px 26px}
+  .slide.light .card{background:var(--bone);border-color:var(--rule)}
+  .card .tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;
+             text-transform:uppercase;color:var(--scarlet);display:block;margin-bottom:10px}
+  .card h3{font-family:var(--display);font-weight:800;text-transform:uppercase;
+           font-size:20px;margin:0 0 8px}
+  .card p{font-size:14.5px;line-height:1.5;margin:0;color:#B9B3A5}
+  .slide.light .card p{color:#4A4438}
+
+  ul.plain{list-style:none;margin:0;padding:0}
+  ul.plain li{font-size:16px;line-height:1.5;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);
+              display:flex;gap:12px}
+  .slide.light ul.plain li{border-top:1px solid var(--rule)}
+  ul.plain li:first-child{border-top:0}
+  ul.plain li b{color:var(--scarlet);font-family:var(--mono);flex-shrink:0}
+
+  .creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .creds span{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.04em;
+             text-transform:uppercase;background:rgba(255,255,255,.08);
+             border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:8px 16px}
+
+  .ctademo{display:inline-flex;align-items:center;gap:0;background:var(--ink);color:var(--bone);
+       padding:15px 20px;border-radius:3px;font-family:var(--mono);font-weight:700;
+       font-size:14px;letter-spacing:.05em;text-transform:uppercase;margin-top:10px}
+  .ctademo .kw{background:var(--scarlet);color:var(--bone);padding:3px 8px;border-radius:2px;margin:0 7px}
+
+  .shot{max-width:100%;border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.35);display:block}
+  .shotwrap{position:relative}
+  .shotwrap .cap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+                 text-transform:uppercase;color:var(--steel);margin-top:10px;text-align:center}
+  .fold{max-height:44vh;overflow:hidden;border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .fold img{width:100%;display:block}
+
+  table.plan{width:100%;border-collapse:collapse;font-size:15px}
+  table.plan th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+                text-transform:uppercase;color:var(--steel);padding:0 0 10px;border-bottom:1px solid var(--rule)}
+  table.plan td{padding:12px 14px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  table.plan td:first-child{font-family:var(--display);font-weight:800;font-size:17px;
+                             text-transform:uppercase;white-space:nowrap;color:var(--scarlet)}
+
+  .steps{display:flex;flex-direction:column;gap:0;margin-top:10px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:16px 0;
+        border-top:1px solid var(--rule);align-items:baseline}
+  .step:first-child{border-top:0}
+  .step .n{font-family:var(--display);font-weight:900;font-size:34px;color:var(--scarlet);min-width:1.2ch}
+  .step b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:17px;display:block}
+  .step span{font-size:14.5px;color:#4A4438}
+  .slide.scarlet .step{border-top-color:rgba(22,19,14,.25)}
+  .slide.scarlet .step .n{color:var(--ink)}
+  .slide.scarlet .step b{color:var(--bone)}
+  .slide.scarlet .step span{color:#5E1D16}
+
+  /* ── nav chrome ───────────────────────────────────────── */
+  .hub-back{position:fixed;top:20px;left:20px;font-family:var(--mono);font-weight:700;
+            font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone);
+            background:rgba(22,19,14,.55);border:1px solid rgba(255,255,255,.2);
+            border-radius:20px;padding:8px 16px;text-decoration:none;z-index:50;
+            backdrop-filter:blur(6px)}
+  .hub-back:hover{background:var(--scarlet)}
+  .chrome{position:fixed;bottom:22px;left:0;right:0;display:flex;align-items:center;
+          justify-content:center;gap:14px;z-index:50;font-family:var(--mono)}
+  .navbtn{background:rgba(22,19,14,.55);color:var(--bone);border:1px solid rgba(255,255,255,.2);
+          width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+          cursor:pointer;font-size:16px;backdrop-filter:blur(6px)}
+  .navbtn:hover{background:var(--scarlet)}
+  .dots{display:flex;gap:6px;background:rgba(22,19,14,.55);padding:8px 12px;border-radius:20px;
+        backdrop-filter:blur(6px)}
+  .dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3)}
+  .dot.on{background:var(--scarlet);width:16px;transition:width .2s}
+
+  @media print{
+    .chrome,.hub-back{display:none}
+    .deck{height:auto;overflow:visible}
+    .slide{height:100vh;break-after:page;scroll-snap-align:none}
+  }
+</style>
+</head>
+<body>
+
+<a class="hub-back" href="index.htm">&larr; hub</a>
+
+<div class="deck" id="deck">
+
+  <!-- 1 — cover -->
+  <section class="slide dark">
+    <div class="brandmark"><span class="chip">JF</span><b>Joyce&nbsp;Fit</b></div>
+    <h1>A launch plan<br>for Brendan Joyce</h1>
+    <p class="lede">Personal training, wherever you are — Chicago.</p>
+  </section>
+
+  <!-- 2 — the idea -->
+  <section class="slide light">
+    <p class="kicker">[ 01 · the idea ]</p>
+    <h1>He doesn't have<br>a gym. He comes<br>to <span class="brk">you</span>.</h1>
+    <p class="lede">That's the entire positioning. No lease, no rent, no membership desk —
+       just Brendan, a bag of equipment if needed, and whatever space you're already in:
+       your building's fitness room, your living room, the park. It's cheaper to run than
+       a studio and it's a better pitch than "personal trainer" on its own.</p>
+  </section>
+
+  <!-- 3 — who he is -->
+  <section class="slide dark">
+    <p class="kicker">[ 02 · why trust him ]</p>
+    <h1>The résumé does<br>some of the selling</h1>
+    <p class="lede">Strangers on the street don't know Brendan. These four facts close that
+       gap fast — lead with them everywhere: the card, the flyer, the bio.</p>
+    <div class="creds">
+      <span>&lt;&lt;YEARS&gt;&gt;+ years training clients</span>
+      <span>ASU-educated in &lt;&lt;DEGREE&gt;&gt;</span>
+      <span>Former Golden Gloves boxer</span>
+      <span>Lifelong Chicagoan</span>
+    </div>
+  </section>
+
+  <!-- 4 — the system -->
+  <section class="slide light">
+    <p class="kicker">[ 03 · the system ]</p>
+    <h1>One number.<br>One word.</h1>
+    <p class="lede">Everything — the flyer, the card, the site — points at a single action.
+       No forms, no phone tag, no one calling Brendan at dinner. A text lands with the
+       word in it, and he knows exactly which piece of paper it came from.</p>
+    <div class="ctademo">Text&nbsp;<span class="kw">JOYCEFIT</span>&nbsp;to&nbsp;(312) 555-0143</div>
+  </section>
+
+  <!-- 5 — the offer -->
+  <section class="slide scarlet">
+    <p class="kicker">[ 04 · the offer ]</p>
+    <h1>First session,<br>on the house</h1>
+    <p class="lede">A free trial turns "I saw a flyer" into an actual booked hour with almost
+       no friction. It costs Brendan one session's worth of time per lead, and it lets a
+       stranger meet him before they have to trust him with money.</p>
+  </section>
+
+  <!-- 6 — the number -->
+  <section class="slide dark">
+    <p class="kicker">[ 05 · the phone number ]</p>
+    <h1>Keep his cell<br>out of it</h1>
+    <p class="lede">One dedicated number for texts and calls, separate from his personal
+       line — so leads never see his real number and he never has to wonder who's texting.</p>
+    <div class="grid2" style="margin-top:8px">
+      <div class="card"><span class="tag">Option A</span><h3>Google Voice</h3>
+        <p>Free. Ties to a Google account, forwards calls/texts to his phone, keeps a
+           written log of every lead. The easy default — start here.</p></div>
+      <div class="card"><span class="tag">Option B</span><h3>Burner</h3>
+        <p>A few dollars a month. Fully separate app and inbox, easier to hand off or
+           kill later. Worth it once this is clearly working.</p></div>
+    </div>
+  </section>
+
+  <!-- 7 — brand -->
+  <section class="slide light">
+    <p class="kicker">[ 06 · what's built — brand ]</p>
+    <h1>A name that<br>matches the ask</h1>
+    <p class="lede">"Joyce Fit" reads faster than "Brendan Joyce Personal Training" and it's
+       the exact word people text — the name and the mechanic are the same thing. Five
+       lock-ups (horizontal, stacked, one-color, mark-only) cover everything from a business
+       card to an Instagram avatar.</p>
+    <div class="ctademo" style="background:var(--ink)">
+      <span class="chip" style="margin-right:10px">JF</span><b style="font-family:var(--display);font-size:20px;text-transform:uppercase">Joyce Fit</b>
+    </div>
+  </section>
+
+  <!-- 8 — website -->
+  <section class="slide dark">
+    <p class="kicker">[ 06 · what's built — the website ]</p>
+    <h1 style="font-size:clamp(30px,5vw,60px);margin-bottom:14px">One page,<br>every size screen</h1>
+    <p class="lede" style="margin-bottom:24px">Ryan will host it live as a working example so it's
+       real before Brendan owns a domain. Same page, same content — it just rearranges
+       itself for whatever someone's holding.</p>
+    <div class="grid2" style="align-items:end">
+      <div class="shotwrap"><div class="fold"><img class="shot" src="_shots/site-desktop-fold.png"></div>
+        <div class="cap">Desktop</div></div>
+      <div class="shotwrap" style="max-width:260px"><div class="fold" style="max-height:44vh">
+        <img class="shot" src="_shots/site-mobile-fold.png"></div>
+        <div class="cap">Mobile</div></div>
+    </div>
+  </section>
+
+  <!-- 9 — card -->
+  <section class="slide light">
+    <p class="kicker">[ 06 · what's built — business card ]</p>
+    <h1>Upload-ready<br>for VistaPrint</h1>
+    <p class="lede">Print-spec PDF with bleed and safe margins already set — no fiddling
+       with their template tool. The QR opens a text with JOYCEFIT pre-typed, so a
+       stranger on the street just scans and hits send.</p>
+    <div class="shotwrap"><img class="shot" src="_shots/cards.png" style="width:100%"></div>
+  </section>
+
+  <!-- 10 — flyer -->
+  <section class="slide dark">
+    <p class="kicker">[ 06 · what's built — the flyer ]</p>
+    <h1>For the lobby,<br>with tabs to tear</h1>
+    <p class="lede">Same brand, built for a bulletin board. Six perforated tabs across the
+       bottom, each with its own QR — anyone can walk off with the number without asking
+       Brendan for anything.</p>
+    <div class="shotwrap" style="max-width:360px;margin:0 auto"><img class="shot" src="_shots/flyer.png" style="width:100%"></div>
+  </section>
+
+  <!-- 11 — distribution -->
+  <section class="slide light">
+    <p class="kicker">[ 07 · where this goes first ]</p>
+    <h1>The cheap<br>channels first</h1>
+    <div class="grid3" style="margin-top:10px">
+      <div class="card"><span class="tag">Free</span><h3>Bulletin Boards</h3>
+        <p>The flyer goes up in lobbies, laundry rooms, fitness rooms — wherever a captive
+           audience already stands still for a minute.</p></div>
+      <div class="card"><span class="tag">Free</span><h3>Cards, always on him</h3>
+        <p>In the gym bag, in the car, in a jacket pocket. Every conversation about
+           training ends with a card, not a "text me your number."</p></div>
+      <div class="card"><span class="tag">Cheap</span><h3>Wherever he trains</h3>
+        <p>A building's community board, a park district bulletin, a gym's front desk —
+           anywhere he already has a foot in the door.</p></div>
+    </div>
+  </section>
+
+  <!-- 12 — social -->
+  <section class="slide dark">
+    <p class="kicker">[ 08 · beyond print — social ]</p>
+    <h1>Where to actually<br>spend the effort</h1>
+    <table class="plan">
+      <tr><th>Platform</th><th>Why / how</th></tr>
+      <tr><td>Instagram</td><td>The main one. Form checks, before/after, client wins,
+          Stories for availability. This is where a prospect goes to check he's real
+          before they text the number.</td></tr>
+      <tr><td>TikTok</td><td>Pure reach — short clips get shown to strangers who've never
+          heard of him, unlike IG's follower-first algorithm. Same footage as Instagram,
+          just cut shorter and posted more often.</td></tr>
+      <tr><td>Facebook</td><td>Neighborhood and building Facebook groups are where an older
+          or more local audience actually asks "anyone know a good trainer?" — a profile
+          and a few group posts cover it. Skip a business Page for now.</td></tr>
+      <tr><td>Twitter / X</td><td>Low priority. Fitness clients aren't finding a trainer
+          there. Fine to grab the handle for consistency, not worth posting effort yet.</td></tr>
+    </table>
+  </section>
+
+  <!-- 13 — other channels -->
+  <section class="slide light">
+    <p class="kicker">[ 09 · other ways to grow it ]</p>
+    <ul class="plain" style="margin-top:10px">
+      <li><b>01</b> <span><b>Google Business Profile</b> — free, and it's what shows up
+          when someone searches "personal trainer near me." Takes ten minutes to claim.</span></li>
+      <li><b>02</b> <span><b>Referral discount</b> — a free or half-off session for any
+          client who brings a friend. Word of mouth is the cheapest channel there is.</span></li>
+      <li><b>03</b> <span><b>Cross-promotion</b> — a coffee shop, juice bar, or physical
+          therapist willing to swap flyers or a shoutout with a trainer they already trust.</span></li>
+      <li><b>04</b> <span><b>Gym floor-time</b> — if he rents time at a gym, ask about
+          leaving cards at the desk or a shared board. Walk-up interest is free.</span></li>
+    </ul>
+  </section>
+
+  <!-- 14 — what's needed -->
+  <section class="slide dark">
+    <p class="kicker">[ 10 · what we need from you, Brendan ]</p>
+    <h1>Six blanks,<br>then it's live</h1>
+    <div class="grid2" style="margin-top:6px">
+      <ul class="plain">
+        <li><b>01</b> <span>A real number for texts/calls (Google Voice today is fine)</span></li>
+        <li><b>02</b> <span>Your exact ASU degree title</span></li>
+        <li><b>03</b> <span>Years training clients, and any cert (NASM/ACE/ISSA/etc.)</span></li>
+      </ul>
+      <ul class="plain">
+        <li><b>04</b> <span>Session and package rates</span></li>
+        <li><b>05</b> <span>An Instagram handle (new or existing)</span></li>
+        <li><b>06</b> <span>A few photos or clips of you training someone</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 15 — next steps -->
+  <section class="slide scarlet">
+    <p class="kicker">[ 11 · next steps ]</p>
+    <h1>Four moves,<br>in order</h1>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><b>Set up the number</b>
+        <span>Google Voice line, five minutes.</span></div></div>
+      <div class="step"><div class="n">2</div><div><b>Fill in the six blanks</b>
+        <span>Send them back and the site, card, and flyer update everywhere at once.</span></div></div>
+      <div class="step"><div class="n">3</div><div><b>Order cards, hang the flyer</b>
+        <span>Upload the PDF to VistaPrint; flyer goes up on bulletin boards this week.</span></div></div>
+      <div class="step"><div class="n">4</div><div><b>Post the first thing on Instagram</b>
+        <span>Doesn't have to be polished — just needs to exist before anyone checks.</span></div></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <button class="navbtn" id="prev" aria-label="Previous slide">‹</button>
+  <div class="dots" id="dots"></div>
+  <button class="navbtn" id="next" aria-label="Next slide">›</button>
+</div>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var dotsEl = document.getElementById('dots');
+  slides.forEach(function(){ var d=document.createElement('div'); d.className='dot'; dotsEl.appendChild(d); });
+  var dots = Array.prototype.slice.call(dotsEl.children);
+  var current = 0;
+
+  function setActive(i){
+    current = i;
+    dots.forEach(function(d,idx){ d.classList.toggle('on', idx===i); });
+  }
+  function go(i){
+    i = Math.max(0, Math.min(slides.length-1, i));
+    slides[i].scrollIntoView({behavior:'smooth'});
+    setActive(i);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ setActive(slides.indexOf(e.target)); }
+    });
+  }, {root: deck, threshold: .6});
+  slides.forEach(function(s){ io.observe(s); });
+
+  document.getElementById('prev').addEventListener('click', function(){ go(current-1); });
+  document.getElementById('next').addEventListener('click', function(){ go(current+1); });
+  window.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight' || e.key==='PageDown'){ go(current+1); }
+    if(e.key==='ArrowLeft' || e.key==='PageUp'){ go(current-1); }
+  });
+  setActive(0);
+})();
+</script>
+</body>
+</html>
