@@ -104,6 +104,12 @@
                  text-transform:uppercase;color:var(--steel);margin-top:10px;text-align:center}
   .fold{max-height:44vh;overflow:hidden;border-radius:6px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
   .fold img{width:100%;display:block}
+  /* A screenshot takes only the height its slide has left, so a short viewport
+     (1280x720, 1366x768) never pushes the kicker or heading out of the slide. */
+  .shotwrap.fit{flex:0 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center}
+  .shotwrap.fit .shot{width:auto;max-width:100%;max-height:100%;min-height:0}
+  /* Stacked on a phone, two 44vh folds plus the heading overflow the slide. */
+  @media(max-width:900px){.fold{max-height:30vh}}
 
   table.plan{width:100%;border-collapse:collapse;font-size:15px}
   table.plan th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
@@ -244,7 +250,7 @@
     <div class="grid2" style="align-items:end">
       <div class="shotwrap"><div class="fold"><img class="shot" src="_shots/site-desktop-fold.png"></div>
         <div class="cap">Desktop</div></div>
-      <div class="shotwrap" style="max-width:260px"><div class="fold" style="max-height:44vh">
+      <div class="shotwrap" style="max-width:260px"><div class="fold">
         <img class="shot" src="_shots/site-mobile-fold.png"></div>
         <div class="cap">Mobile</div></div>
     </div>
@@ -257,7 +263,7 @@
     <p class="lede">Print-spec PDF with bleed and safe margins already set — no fiddling
        with their template tool. The QR opens a text with JOYCEFIT pre-typed, so a
        stranger on the street just scans and hits send.</p>
-    <div class="shotwrap"><img class="shot" src="_shots/cards.png" style="width:100%"></div>
+    <div class="shotwrap fit"><img class="shot" src="_shots/cards.png"></div>
   </section>
 
   <!-- 10 — flyer -->
@@ -267,7 +273,7 @@
     <p class="lede">Same brand, built for a bulletin board. Six perforated tabs across the
        bottom, each with its own QR — anyone can walk off with the number without asking
        Brendan for anything.</p>
-    <div class="shotwrap" style="max-width:360px;margin:0 auto"><img class="shot" src="_shots/flyer.png" style="width:100%"></div>
+    <div class="shotwrap fit"><img class="shot" src="_shots/flyer.png" style="max-width:min(360px,100%)"></div>
   </section>
 
   <!-- 11 — distribution -->
