@@ -187,7 +187,9 @@
 
 <a class="hub-back" href="index.htm">&larr; hub</a>
 
-<header class="hero wrap" id="top">
+<!-- No id="top" here: with no such element, the brand's href="#top" scrolls to the
+     very top of the page; pointing it at this header left the sticky nav covering it. -->
+<header class="hero wrap">
   <p class="eyebrow">Personal training / Chicago</p>
   <h1 class="headline">
     Your gym is<br>
