@@ -34,7 +34,9 @@
   ::selection{background:var(--scarlet);color:var(--bone)}
 
   .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
-  .slide{height:100vh;width:100vw;scroll-snap-align:start;display:flex;flex-direction:column;
+  /* 100% not 100vw: .deck's own scrollbar eats into 100vw, which made the deck
+     overflow sideways and grow a horizontal scrollbar under the slides. */
+  .slide{height:100vh;width:100%;scroll-snap-align:start;display:flex;flex-direction:column;
          justify-content:center;padding:6vw 8vw;position:relative;overflow:hidden}
   .slide.dark{background:var(--ink);color:var(--bone)}
   .slide.light{background:var(--paper);color:var(--ink)}
