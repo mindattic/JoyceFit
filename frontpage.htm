@@ -100,6 +100,8 @@
   .cta:hover{background:var(--scarlet);transform:translateY(-2px)}
   .cta .kw{background:var(--scarlet);color:var(--bone);padding:3px 8px;border-radius:2px;margin:0 7px}
   .cta .num{white-space:nowrap}
+  /* Base rule sits above the phone query below so its gap override can win. */
+  .ctarow{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:8px}
   /* Phones get a full-width tap target with the number on its own line —
      more legible than shrinking type to squeeze it onto one. */
   @media(max-width:430px){
@@ -109,7 +111,6 @@
     .ctarow{gap:16px}
   }
   .cta:hover .kw{background:var(--ink)}
-  .ctarow{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:8px}
   .ctanote{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--steel);max-width:32ch;margin:0}
 
   /* ── credential strip ──────────────────────────────── */
