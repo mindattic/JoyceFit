@@ -81,6 +81,15 @@
   .card p{font-size:14.5px;line-height:1.5;margin:0;color:#B9B3A5}
   .slide.light .card p{color:#4A4438}
 
+  /* Slide 7: the six logo lock-ups shipped in the repo root, three across (two on a phone). */
+  .lockups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6vw;margin-top:6px;max-width:980px}
+  .lockups .card{margin:0;min-width:0;padding:12px 14px;display:flex;flex-direction:column;align-items:center;
+                 justify-content:space-between;gap:10px}
+  .lockups img{display:block;height:clamp(36px,7.5vh,96px);max-width:100%;width:auto;object-fit:contain}
+  .lockups .tag{margin:0}
+  @media(max-width:900px){.lockups{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .lockups .card{padding:8px 10px;gap:6px}.lockups img{height:clamp(30px,6vh,56px)}}
+
   ul.plain{list-style:none;margin:0;padding:0}
   ul.plain li{font-size:16px;line-height:1.5;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);
               display:flex;gap:12px}
@@ -232,11 +241,16 @@
     <p class="kicker">[ 06 · what's built — brand ]</p>
     <h1>A name that<br>matches the ask</h1>
     <p class="lede">"Joyce Fit" reads faster than "Brendan Joyce Personal Training" and it's
-       the exact word people text — the name and the mechanic are the same thing. Four
-       lock-ups (horizontal, stacked, one-color, mark-only) cover everything from a business
-       card to an Instagram avatar.</p>
-    <div class="ctademo" style="background:var(--ink)">
-      <span class="chip" style="margin-right:10px">JF</span><b style="font-family:var(--display);font-size:20px;text-transform:uppercase">Joyce Fit</b>
+       the exact word people text — the name and the mechanic are the same thing. Six
+       lock-ups (horizontal, reversed, one-color, stacked, mark, ink mark) cover everything
+       from a business card to an Instagram avatar.</p>
+    <div class="lockups">
+      <figure class="card"><img src="joycefit-logo-primary.svg" alt="Joyce Fit horizontal lock-up"><figcaption class="tag">Horizontal</figcaption></figure>
+      <figure class="card"><img src="joycefit-logo-reversed.svg" alt="Joyce Fit reversed lock-up"><figcaption class="tag">Reversed</figcaption></figure>
+      <figure class="card"><img src="joycefit-logo-onecolor.svg" alt="Joyce Fit one-color lock-up"><figcaption class="tag">One-color</figcaption></figure>
+      <figure class="card"><img src="joycefit-logo-stacked.svg" alt="Joyce Fit stacked lock-up"><figcaption class="tag">Stacked</figcaption></figure>
+      <figure class="card"><img src="joycefit-mark.svg" alt="Joyce Fit mark"><figcaption class="tag">Mark</figcaption></figure>
+      <figure class="card"><img src="joycefit-mark-ink.svg" alt="Joyce Fit ink mark"><figcaption class="tag">Mark · ink</figcaption></figure>
     </div>
   </section>
 
