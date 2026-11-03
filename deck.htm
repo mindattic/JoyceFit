@@ -398,9 +398,16 @@
 
   document.getElementById('prev').addEventListener('click', function(){ go(current-1); });
   document.getElementById('next').addEventListener('click', function(){ go(current+1); });
+  // Up/Down count too: the deck scrolls vertically, and until the deck has been
+  // clicked the browser's own arrow scrolling never reaches it, so Down did nothing.
   window.addEventListener('keydown', function(e){
-    if(e.key==='ArrowRight' || e.key==='PageDown'){ go(current+1); }
-    if(e.key==='ArrowLeft' || e.key==='PageUp'){ go(current-1); }
+    if(e.altKey || e.ctrlKey || e.metaKey) return;
+    var step = 0;
+    if(e.key==='ArrowRight' || e.key==='ArrowDown' || e.key==='PageDown'){ step = 1; }
+    if(e.key==='ArrowLeft' || e.key==='ArrowUp' || e.key==='PageUp'){ step = -1; }
+    if(!step) return;
+    e.preventDefault();
+    go(current+step);
   });
   setActive(0);
 })();
