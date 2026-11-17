@@ -30,7 +30,7 @@ _Nothing recorded yet._
 | JF-T7 | 2026-10-16 | docs | open | Bring README.md up to date with the code as it is now (what it is, setup, usage, commands, current state), following codex-standard/README-STYLE.md; README.htm regenerated if the repo has one | user request 2026-10-16: approved repo sweep |
 | JF-T8 | 2026-10-16 | docs | closed | Update USER_STORIES.md | — |
 | JF-T9 | 2026-10-19 | chore | wont-do | Convert tracked source files to LF line endings via .gitattributes, per HOUSE-LAW-13 (low priority) | — |
-| JF-T10 | 2026-10-20 | docs | open | Publish JoyceFit docs to GitHub Pages via the shared Agency DocFX pipeline: run adopt-docs-site.ps1 (README.md as home page, docs/*.md as articles, API reference only where the code builds in CI), enable Pages with build_type=workflow, set the repo homepage URL, retire tools/build-readme.ps1 and README.htm, confirm the docs Actions run is green and https://mindattic.github.io/JoyceFit/ returns 200. Depends on MAT-T8. This is a static site: the Pages site is docs only and must not replace or clash with its real hosting (check MindAttic.Deploy first). | — |
+| JF-T10 | 2026-10-20 | docs | closed | Publish JoyceFit docs to GitHub Pages via the shared Agency DocFX pipeline: run adopt-docs-site.ps1 (README.md as home page, docs/*.md as articles, API reference only where the code builds in CI), enable Pages with build_type=workflow, set the repo homepage URL, retire tools/build-readme.ps1 and README.htm, confirm the docs Actions run is green and https://mindattic.github.io/JoyceFit/ returns 200. Depends on MAT-T8. This is a static site: the Pages site is docs only and must not replace or clash with its real hosting (check MindAttic.Deploy first). | — |
 | JF-T11 | 2026-10-21 | fix | closed | deck.htm: slides are width:100vw inside a scrolling .deck, so on Windows/classic scrollbars the deck overflows sideways, shows a horizontal scrollbar and snapped slides no longer fit the viewport | eb541ea |
 | JF-T12 | 2026-10-21 | fix | closed | deck.htm: screenshot slides (card, flyer; website on phones) are taller than 100vh at 1280x720/1366x768, so overflow:hidden crops the kicker and heading off the top and the image off the bottom | ec0bf63 |
 | JF-T13 | 2026-10-21 | fix | closed | frontpage.htm: the phone media query's .ctarow{gap:16px} sits before the base .ctarow rule, so the later gap:22px always wins and the mobile gap never applies | 74b6066 |
@@ -39,8 +39,10 @@ _Nothing recorded yet._
 | JF-T16 | 2026-10-21 | docs | closed | Update USER_STORIES.md | — |
 | JF-T17 | 2026-10-22 | docs | closed | Update USER_STORIES.md | — |
 | JF-T18 | 2026-10-24 | docs | closed | Update USER_STORIES.md | — |
-| JF-T19 | 2026-11-02 | docs | open | Adopt MindAttic.Agency docs-site pipeline, publish README to GitHub Pages (HOUSE-LAW-14) | — |
+| JF-T19 | 2026-11-02 | docs | closed | Adopt MindAttic.Agency docs-site pipeline, publish README to GitHub Pages (HOUSE-LAW-14) | — |
 | JF-T20 | 2026-11-02 | fix | closed | Bughunt sweep, two passes: find and fix real bugs across tracked source (user request 2026-11-02) | — |
 | JF-T21 | 2026-11-02 | fix | closed | Fix the open items the 2026-11-02 bughunt left for decision (deck slide 7 lock-up count) | — |
 | JF-T22 | 2026-11-03 | fix | closed | deck.htm slide 7: show all six logo lock-ups, not four | d9334cc |
 | JF-T23 | 2026-11-10 | chore | closed | Crash recovery: commit the command-catalog sync (.agent/commands/*.md) and regenerated docs/USER_STORIES.md left uncommitted by the session crash | — |
+| JF-T24 | 2026-11-10 | chore | closed | Adopt the shared docs-site pipeline: turn on GitHub Pages | — |
+| JF-T25 | 2026-11-17 | docs | closed | Update USER_STORIES.md | — |
